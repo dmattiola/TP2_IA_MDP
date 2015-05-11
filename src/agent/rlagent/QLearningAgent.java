@@ -42,7 +42,7 @@ public class QLearningAgent extends RLAgent{
         //VOTRE CODE
         ArrayList<Action> listAction = new ArrayList<>();
         double max = Double.MIN_VALUE;
-        for(Action a : getEnv().getActionsPossibles(e)){
+        for(Action a : getActionsLegales(e)){
             double valeur = getQValeur(e, a);
             if (valeur > max){
                 listAction.clear();

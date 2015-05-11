@@ -32,17 +32,18 @@ public class StrategyGreedy extends StrategyExploration{
     @Override
     public Action getAction(Etat _e) {
         //VOTRE CODE
-        List<Action> listAction = this.getAgent().getActionsLegales(_e);
+        List<Action> listAction = getAgent().getActionsLegales(_e);
+        System.out.println(listAction);
         if (listAction.isEmpty()){
             return ActionGridworld.NONE;
         } else if (listAction.size() == 1){
             return listAction.get(0);
         } else {
-            if (this.rand.nextDouble() <= this.epsilon){
-                return listAction.get(this.rand.nextInt(listAction.size()));
+            if (rand.nextDouble() <= epsilon){
+                return listAction.get(rand.nextInt(listAction.size()));
             } else {
                 listAction = this.getAgent().getPolitique(_e);
-                return listAction.get(this.rand.nextInt(listAction.size()));
+                return listAction.get(rand.nextInt(listAction.size()));
             }
         } 
     }
